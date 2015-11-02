@@ -15,4 +15,4 @@ class HistoryItem(models.Model):
     reader = models.ForeignKey(Reader)
 
     def __str__(self):
-        return '№{} {}'.format(self.bookItem.pk, self.bookItem.book.name)
+        return '№{} {}'.format(self.bookItem.pk, self.bookItem.book.name.encode('utf-8').strip())

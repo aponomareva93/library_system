@@ -12,11 +12,11 @@ class Book(models.Model):
     publisher = models.CharField(max_length=100)
 
     def __str__(self):
-        return '{} {}'.format(self.author, self.name)
+        return '{} {}'.format(self.author.encode('utf-8').strip(), self.name.encode('utf-8').strip())
 
 
 class BookItem(models.Model):
     book = models.ForeignKey(Book)
 
     def __str__(self):
-        return '№{} {}'.format(self.pk, self.book.name)
+        return '№{} {}'.format(self.pk, self.book.name.encode('utf-8').strip())

@@ -8,4 +8,7 @@ class Reader(User):
     address = models.CharField(null=True, max_length=50)
 
     def __str__(self):
-        return '№{} {} {}: {}'.format(self.pk, self.first_name, self.last_name, self.username)
+        return '№{} {} {}: {}'.format(self.pk, self.first_name.encode('utf-8').strip(),
+                                      self.last_name.encode('utf-8').strip(),
+                                      self.username.encode('utf-8').strip()
+                                      )
