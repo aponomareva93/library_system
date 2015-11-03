@@ -1,6 +1,5 @@
 # -- coding: utf-8 --
 from django.db import models
-import datetime
 from books.models import BookItem
 from readers.models import Reader
 
