@@ -1,0 +1,13 @@
+<p>Вы искали: <strong>{{ query }}</strong></p>
+
+{% if books %}
+    <p>Найдено совпадений: {{ books|length }}.</p>
+    <ul>
+        {% for book in books %}
+        <li>{{ book.author }} - {{ book.name }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Совпадений не найдено</p>
+{% endif %}
+{% include 'search_form.html' %}

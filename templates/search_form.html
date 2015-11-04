@@ -1,0 +1,20 @@
+<html>
+<head>
+    <title>Поиск</title>
+</head>
+<body>
+    <p>Воспользуйтесь поиском по сайту, чтобы найти книгу:</p>
+    {% if error %}
+        <p style="color: red;">Пожалуйста, заполните форму поиска</p>
+    {% endif %}
+    <form action="" method="get">
+        Название книги:
+        <input type="text" name="name">
+        <br><br>
+        Автор:
+        <input type="text" name="author">
+        <br><br>
+        <input type="submit" value="Поиск">
+    </form>
+</body>
+</html>
