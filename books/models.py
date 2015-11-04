@@ -12,8 +12,7 @@ class Book(models.Model):
     publisher = models.CharField(max_length=100)
 
     def __str__(self):
-        return '{} - {}'.format(self.author.encode('utf-8').strip(),
-                                self.name.encode('utf-8').strip())
+        return '{} - {}'.format(self.author.encode('utf-8').strip(), self.name.encode('utf-8').strip())
 
 
 class BookItem(models.Model):
