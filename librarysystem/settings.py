@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'books',
     'readers',
     'history',
+    'librarysystem',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -52,6 +53,13 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+)
+
+CUSTOM_USER_MODEL = 'readers.Reader'
+
+AUTHENTICATION_BACKENDS = (
+    'readers.reader_backend.ReaderModelBackend',
+    'django.contrib.auth.backends.ModelBackend',
 )
 
 ROOT_URLCONF = 'librarysystem.urls'

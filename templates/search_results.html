@@ -4,10 +4,12 @@
     <p>Найдено совпадений: {{ books|length }}.</p>
     <ul>
         {% for book in books %}
-        <li>{{ book.author }} - {{ book.name }}</li>
+        <li>{{ book.author }} - {{ book.name }}
+            (Издательство - {{ book.publisher }}, год издания - {{ book.year }})</li>
         {% endfor %}
     </ul>
 {% else %}
     <p>Совпадений не найдено</p>
 {% endif %}
 {% include 'search_form.html' %}
+<a href="../index">Вернуться на домашнюю страницу</a>

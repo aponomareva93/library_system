@@ -1,39 +1,22 @@
-from django.views.generic.edit import FormView
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login
-from django.http import HttpResponseRedirect
-from django.views.generic.base import View
-from django.contrib.auth import logout
-from django.shortcuts import render_to_response
-
-
-class RegisterFormView(FormView):
-    form_class = UserCreationForm
-    success_url = "/login/"
-    template_name = "register.html"
-
-    def form_valid(self, form):
-        form.save()
-        return super(RegisterFormView, self).form_valid(form)
-
-
-class LoginFormView(FormView):
-    form_class = AuthenticationForm
-    template_name = "login.html"
-    success_url = "/homepage/"
-
-    def form_valid(self, form):
-        self.user = form.get_user()
-        login(self.request, self.user)
-        return super(LoginFormView, self).form_valid(form)
-
-
-class LogoutView(View):
-    def get(self, request):
-        logout(request)
-        return HttpResponseRedirect("/index/")
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
+from django.shortcuts import render_to_response, render
+from django.contrib import messages
 
 
 def home(request):
-    return render_to_response('homepage.html')
+    return render_to_response('index.html', {'username': request.user.first_name})
+
+
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(user=request.user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)
+            messages.success(request, "Password changed.")
+            return render(request, "change_pass.html", {'form': PasswordChangeForm(request.user), 'message': messages})
+        else:
+            messages.error(request, "Incorrect password")
+            return render(request, "change_pass.html", {'form': PasswordChangeForm(request.user), 'message': messages})
+    return render(request, "change_pass.html", {'form': PasswordChangeForm(request.user), 'message': messages})

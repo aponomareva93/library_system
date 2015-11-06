@@ -8,7 +8,7 @@ from django.views.generic.base import View
 class LoginFormView(FormView):
     form_class = AuthenticationForm
     template_name = "login.html"
-    success_url = "/homepage/"
+    success_url = "/index/"
 
     def form_valid(self, form):
         self.user = form.get_user()

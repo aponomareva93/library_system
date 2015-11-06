@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Смена пароля</title>
+  </head>
+  <body>
+    <form action="" method="post">
+      {% csrf_token %}
+      <!-- as_p для того, чтобы каждый элемент формы был с новой строки -->
+      {{ form.as_p }}
+      <button type="submit">Сменить пароль</button>
+        <br>
+        {% for message in messages %}
+            {% if message.tags == 'error' %}
+                <p style="color: red;">{{ message }}</p>
+            {% else %}
+            <p style="color: green;">{{ message }}</p>
+            {% endif %}
+        {% endfor %}
+    </form>
+    <a href="../index">Вернуться на домашнюю страницу</a>
+  </body>
+</html>
