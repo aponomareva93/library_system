@@ -4,8 +4,8 @@ from django.contrib.auth.models import User, UserManager
 
 
 class Reader(User):
-    phoneNumber = models.CharField(blank=True, verbose_name="Phone number", max_length=16)
-    address = models.CharField(blank=True, max_length=50)
+    phoneNumber = models.CharField(blank=True, verbose_name="Номер телефона", max_length=16)
+    address = models.CharField(verbose_name="Адрес", blank=True, max_length=50)
     objects = UserManager()
 
     def __str__(self):

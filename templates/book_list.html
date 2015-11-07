@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ваш список книг</title>
+</head>
+<body>
+    {%  if books %}
+        {% for book in books %}
+            {% if book.dateReturned == null %}
+                <li>{{ book.bookItem.book.author }} - {{ book.bookItem.book.name }}
+                (Издательство - {{ book.bookItem.book.publisher }},
+                год издания - {{ book.bookItem.book.year }})</li>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <p>У вас сейчас нет книг</p>
+    {% endif %}
+    <a href="../index">Вернуться на домашнюю страницу</a>
+</body>
+</html>
