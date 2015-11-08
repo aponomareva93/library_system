@@ -1,6 +1,8 @@
 from django.contrib import admin
-
 from history.models import HistoryItem
 
 
-admin.site.register(HistoryItem)
+class HistoryAdmin(admin.ModelAdmin):
+    search_fields = ('dateTaken', )
+
+admin.site.register(HistoryItem, HistoryAdmin)

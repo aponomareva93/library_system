@@ -35,6 +35,7 @@ class ReaderAdmin(UserAdmin):
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
         (_('Groups'), {'fields': ('groups',)}),
     )
+    search_fields = ('username', 'first_name', 'last_name')
 
 admin.site.unregister(User)
 admin.site.register(Reader, ReaderAdmin)
