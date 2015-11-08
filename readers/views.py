@@ -15,8 +15,11 @@ def change_password(request):
             form.save()
             update_session_auth_hash(request, form.user)
             messages.success(request, "Password changed.")
-            return render(request, "change_pass.html", {'form': PasswordChangeForm(request.user), 'message': messages})
+            return render(request, "change_pass.html",
+                          {'form': PasswordChangeForm(request.user), 'message': messages})
         else:
             messages.error(request, "Incorrect password")
-            return render(request, "change_pass.html", {'form': PasswordChangeForm(request.user), 'message': messages})
-    return render(request, "change_pass.html", {'form': PasswordChangeForm(request.user), 'message': messages})
+            return render(request, "change_pass.html",
+                          {'form': PasswordChangeForm(request.user), 'message': messages})
+    return render(request, "change_pass.html",
+                  {'form': PasswordChangeForm(request.user), 'message': messages})

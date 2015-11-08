@@ -24,8 +24,10 @@ class HistoryItem(models.Model):
         if self.dateDue < datetime.date.today():
             if not self.dateReturned:
                 return str(self.dailyFine * (datetime.date.today() - self.dateDue)).split()[0]
-            else:
+            elif self.dateReturned > self.dateDue:
                 return str(self.dailyFine * (self.dateReturned - self.dateDue)).split()[0]
+            else:
+                return 0
         else:
             return 0
 

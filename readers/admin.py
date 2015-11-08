@@ -28,10 +28,10 @@ class ReaderAdmin(UserAdmin):
                     'is_staff', 'is_active')
     fieldsets = (
         (None, {'fields': ('username', 'password')}),
-        (_('Personal info'), {'fields': (
-                'first_name', 'last_name', 'email', 'phoneNumber', 'address'
-            )}),
-        (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser', 'user_permissions')}),
+        (_('Personal info'), {'fields': ('first_name', 'last_name',
+                                         'email', 'phoneNumber', 'address')}),
+        (_('Permissions'), {'fields': ('is_active', 'is_staff',
+                                       'is_superuser', 'user_permissions')}),
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
         (_('Groups'), {'fields': ('groups',)}),
     )
