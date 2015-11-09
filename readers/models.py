@@ -1,8 +1,9 @@
 # -- coding: utf-8 --
-from django.db import models
 from django.contrib.auth.models import User, UserManager
+from django.db import models
 
 
+# noinspection PyAbstractClass
 class Reader(User):
     phone_number = models.CharField(blank=True, verbose_name="Номер телефона", max_length=16)
     address = models.CharField(verbose_name="Адрес", blank=True, max_length=50)

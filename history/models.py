@@ -1,8 +1,10 @@
 # -- coding: utf-8 --
+import datetime
+
 from django.db import models
+
 from books.models import BookItem
 from readers.models import Reader
-import datetime
 
 
 class HistoryItem(models.Model):
@@ -25,9 +27,9 @@ class HistoryItem(models.Model):
     def calculate_fine(self):
         if self.date_due < datetime.date.today():
             if not self.date_returned:
-                return str(self.daily_fine * (datetime.date.today() - self.date_due)).split()[0]
+                return self.daily_fine * (datetime.date.today() - self.date_due).days
             elif self.date_returned > self.date_due:
-                return str(self.daily_fine * (self.date_returned - self.date_due)).split()[0]
+                return self.daily_fine * (self.date_returned - self.date_due).days
             else:
                 return 0
         else:

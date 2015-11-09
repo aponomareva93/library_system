@@ -1,8 +1,8 @@
-from django.views.generic.edit import FormView
-from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
+from django.contrib.auth.forms import AuthenticationForm
 from django.http import HttpResponseRedirect
 from django.views.generic.base import View
+from django.views.generic.edit import FormView
 
 
 class LoginFormView(FormView):

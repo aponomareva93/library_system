@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     'books',
     'readers',
     'history',
@@ -58,7 +59,6 @@ MIDDLEWARE_CLASSES = (
 CUSTOM_USER_MODEL = 'readers.Reader'
 
 AUTHENTICATION_BACKENDS = (
-    'readers.reader_backend.ReaderModelBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 

@@ -1,8 +1,10 @@
 # encoding: utf-8
 
+from datetime import date
+
 from django.core.urlresolvers import reverse
 from django.test import TestCase
-from datetime import date
+
 from books.models import Book, BookItem
 from history.models import HistoryItem
 from readers.models import Reader

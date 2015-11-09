@@ -1,10 +1,11 @@
 from django.contrib import admin
-from readers.models import Reader
 from django.contrib.auth.admin import UserAdmin
-from django.contrib.auth.models import User
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.contrib.auth.forms import UserChangeForm
+from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
+
+from readers.models import Reader
 
 
 class ReaderChangeForm(UserChangeForm):

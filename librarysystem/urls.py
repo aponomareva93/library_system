@@ -4,7 +4,6 @@ from django.contrib import admin
 from history.views import BookListView
 from readers import forms
 
-
 admin.autodiscover()
 
 urlpatterns = patterns(

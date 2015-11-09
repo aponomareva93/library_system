@@ -1,9 +1,10 @@
 from datetime import date
+
 from django.core.management.base import BaseCommand
 
 from books.models import Book, BookItem
-from readers.models import Reader
 from history.models import HistoryItem
+from readers.models import Reader
 
 
 class Command(BaseCommand):
