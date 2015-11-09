@@ -1,24 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Ваш список книг</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Ваш список книг{% endblock %}
+{% block content %}
     {%  if books %}
-        {% for book in books %}
-            {% if book.dateReturned == null or  book.dateReturned != null and book.fine > 0 and  not book.isFinePaid %}
-                {% if book.dateReturned != null and book.fine > 0 and  not book.isFinePaid %}
+        {% for book_i in books %}
+            {% if book_i.date_returned == null or  book_i.date_returned != null and book_i.fine > 0 and  not book_i.is_fine_paid %}
+                {% if book_i.date_returned != null and book_i.fine > 0 and  not book_i.is_fine_paid %}
                     <div style="color: red;">Книга в библиотеке, но задолженность не погашена:</div>
                 {% endif %}
-                <li>{{ book.bookItem.book.author }} - {{ book.bookItem.book.name }}
-                (Издательство - {{ book.bookItem.book.publisher }},
-                год издания - {{ book.bookItem.book.year }})</li>
+                <li>{{ book_i.book_item.book.author }} - {{ book_i.book_item.book.name }}
+                (Издательство - {{ book_i.book_item.book.publisher }},
+                год издания - {{ book_i.book_item.book.year }})</li>
                 Сроки:
                 <br>
-                {{ book.dateTaken }} - {{ book.dateDue }}
-                {% if book.fine > 0 and not book.isFinePaid %}
+                {{ book_i.date_taken }} - {{ book_i.date_due }}
+                {% if book_i.fine > 0 and not book_i.is_fine_paid %}
                     <div style="color: red;">Задолженность за книгу:
-                        {{ book.fine }} руб.</div>
+                        {{ book_i.fine }} руб.</div>
                 {% endif %}
                 <br><br>
             {% endif %}
@@ -29,5 +26,4 @@
         <p>У вас сейчас нет книг</p>
     {% endif %}
     <a href="../index">Вернуться на домашнюю страницу</a>
-</body>
-</html>
+{% endblock %}

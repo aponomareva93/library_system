@@ -1,8 +1,6 @@
-<html>
-<head>
-    <title>Поиск</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Поиск{% endblock %}
+{% block content %}
     <p>Воспользуйтесь поиском по сайту, чтобы найти книгу:</p>
     {% if error %}
         <p style="color: red;">Пожалуйста, заполните форму поиска</p>
@@ -16,5 +14,4 @@
         <br><br>
         <input type="submit" value="Поиск">
     </form>
-</body>
-</html>
+{% endblock %}

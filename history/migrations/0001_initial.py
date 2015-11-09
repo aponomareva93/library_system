@@ -14,14 +14,14 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='HistoryItem',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('dateTaken', models.DateField(verbose_name=b'Date Taken')),
-                ('dateDue', models.DateField(verbose_name=b'Date Due')),
-                ('dateReturned', models.DateField(verbose_name=b'Date Returned', blank=True)),
-                ('fine', models.SmallIntegerField(default=0)),
-                ('dailyFine', models.SmallIntegerField(default=1, verbose_name=b'Daily Fine (in rubles)')),
-                ('isFinePaid', models.NullBooleanField(default=True, verbose_name=b'Is Fine Paid?')),
-                ('bookItem', models.ForeignKey(to='books.BookItem')),
+                ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True, serialize=False)),
+                ('date_taken', models.DateField(verbose_name='Дата выдачи')),
+                ('date_due', models.DateField(verbose_name='Срок возврата')),
+                ('date_returned', models.DateField(blank=True, verbose_name='Дата возврата', null=True)),
+                ('fine', models.SmallIntegerField(verbose_name='Суммарный штраф', default=0)),
+                ('daily_fine', models.SmallIntegerField(verbose_name='Ежедневный штраф (в рублях)', default=1)),
+                ('is_fine_paid', models.NullBooleanField(verbose_name='Штраф оплачен?', default=False)),
+                ('book_item', models.ForeignKey(to='books.BookItem')),
             ],
         ),
     ]

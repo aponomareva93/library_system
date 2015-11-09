@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Библиотека</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
     {% if user.is_authenticated %}
         <p>Здравствуйте, {{ user.first_name }}</p>
         <p>Для того, чтобы сменить пароль, перейдите по <a href="/change_pass">ссылке</a></p>
@@ -17,5 +13,4 @@
         <a href="/admin">Войти как администратор</a>
     {% endif %}
     <p>Чтобы найти книгу, воспользуйтесь <a href="../search">поиском</a></p>
-</body>
-</html>
+{% endblock %}

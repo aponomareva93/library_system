@@ -2,8 +2,8 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
-from django.conf import settings
 import django.contrib.auth.models
+from django.conf import settings
 
 
 class Migration(migrations.Migration):
@@ -16,14 +16,14 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Reader',
             fields=[
-                ('user_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to=settings.AUTH_USER_MODEL)),
-                ('phoneNumber', models.CharField(max_length=16, verbose_name=b'Phone number', blank=True)),
-                ('address', models.CharField(max_length=50, blank=True)),
+                ('user_ptr', models.OneToOneField(parent_link=True, to=settings.AUTH_USER_MODEL, serialize=False, auto_created=True, primary_key=True)),
+                ('phone_number', models.CharField(blank=True, verbose_name='Номер телефона', max_length=16)),
+                ('address', models.CharField(blank=True, verbose_name='Адрес', max_length=50)),
             ],
             options={
-                'abstract': False,
                 'verbose_name': 'user',
                 'verbose_name_plural': 'users',
+                'abstract': False,
             },
             bases=('auth.user',),
             managers=[

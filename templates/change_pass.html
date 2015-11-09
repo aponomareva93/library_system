@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Смена пароля</title>
-  </head>
-  <body>
+{% extends "base.html" %}
+{% block title %}Смена пароля{% endblock %}  </head>
+{% block content %}
     <form action="" method="post">
       {% csrf_token %}
       <!-- as_p для того, чтобы каждый элемент формы был с новой строки -->
@@ -19,5 +16,4 @@
         {% endfor %}
     </form>
     <a href="../index">Вернуться на домашнюю страницу</a>
-  </body>
-</html>
+{% endblock %}
