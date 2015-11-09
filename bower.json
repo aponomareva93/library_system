@@ -1,0 +1,22 @@
+{
+  "name": "library_system",
+  "homepage": "https://github.com/aponomareva93/library_system",
+  "authors": [
+    "aponomareva93 <apon1993@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5"
+  }
+}
