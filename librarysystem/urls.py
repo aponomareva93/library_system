@@ -2,7 +2,6 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
 from history.views import BookListView
-from readers.views import ReaderList
 from readers import forms
 
 admin.autodiscover()
