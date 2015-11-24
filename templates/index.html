@@ -1,16 +1,47 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% block content %}
+
     {% if user.is_authenticated %}
+
         <p>Здравствуйте, {{ user.first_name }}</p>
         <p>Для того, чтобы сменить пароль, перейдите по <a href="/change_pass">ссылке</a></p>
         <p>Чтобы просмотреть список ваших книг, перейдите по <a href="/book_list">ссылке</a></p>
         <a href="../logout">Выйти</a>
+
     {% else %}
-        <p>Добро пожаловать на главную страницу библиотеки</p>
-        <br>
-        <a href="/login">Войти как пользователь</a>
-        <br>
-        <a href="/admin">Войти как администратор</a>
+
+        <div class="header">
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4 text-center">
+                            <img src="{% static "img/logo.png" %}" class="logo">
+                        </div>
+                        <div class="col-sm-4 text-right">
+                            <div class="search">
+                                <img src="{% static "img/search.png" %}"><a href="../search">Поиск книги</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="title">
+                        <h1>ТОМСКАЯ БИБЛИОТЕКА<br>ИМЕНИ А.П.ЧЕХОВА</h1>
+                    </div>
+
+                    <div class="login">
+                        Перед началом работы в системе<br>войдите в свой аккаунт
+                        <br>
+                        <a href="/login" class="btn bucket">Пользователь</a>
+                        <a href="/admin" class="btn bucket">Администратор</a>
+                    </div>
+
+                </div>
+        </div>
     {% endif %}
-    <p>Чтобы найти книгу, воспользуйтесь <a href="../search">поиском</a></p>
+
+
 {% endblock %}
