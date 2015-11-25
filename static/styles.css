@@ -5,8 +5,33 @@ body {
     position: relative;
 }
 
+a{
+    font-size: 12pt;
+    color: #ffffff;
+}
+
+a:hover{
+    font-size: 12pt;
+    color: #ffffff;
+}
+
 .logo {
     margin-top: 25px;
+}
+
+.logo1 {
+    margin-top: 15px;
+    margin-left: 7px;
+    float: left;
+}
+
+.logo-text {
+    color: #ffffff;
+    font-size: 12pt;
+    margin-left: 15px;
+    line-height: 16px;
+    margin-top: 30px;
+    float: left;
 }
 
 .search{
@@ -15,9 +40,7 @@ body {
 }
 
 .search a{
-    font-size: 12pt;
     margin-left: 5px;
-    color: #ffffff;
 }
 
 .title {
@@ -29,14 +52,21 @@ body {
     margin-bottom: 25px;
 }
 
+.user {
+    text-align: center;
+    color: #ffffff;
+    margin-top: 30px;
+    font-size: 12pt;
+}
+.user h5{
+    margin-top: 30px;
+}
+
 .login {
     text-align: center;
     color: #ffffff;
     margin-top: 30px;
-}
-
-.login p {
-    font-size: 12px;
+    font-size: 12pt;
 }
 
 .bucket {
@@ -66,4 +96,29 @@ body {
     margin-top: 150px;
     font-size: 16px;
     text-align: center;
+}
+
+.form_login {
+    text-align: center;
+    margin-top: 3px;
+    font-size: 11pt;
+}
+
+.form_login input {
+    height: 30px;
+    width: 200px;
+    text-align: center;
+    margin-top: 5px;
+    background: #ffffff;
+}
+
+.form_login input:focus {
+    border:2px solid #3795d0;
+}
+
+.error {
+   margin-top: 5px;
+   color: red;
+   font-size: 12pt;
+   text-align: center;
 }

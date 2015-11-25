@@ -2,16 +2,7 @@
 {% load staticfiles %}
 {% block content %}
 
-    {% if user.is_authenticated %}
-
-        <p>Здравствуйте, {{ user.first_name }}</p>
-        <p>Для того, чтобы сменить пароль, перейдите по <a href="/change_pass">ссылке</a></p>
-        <p>Чтобы просмотреть список ваших книг, перейдите по <a href="/book_list">ссылке</a></p>
-        <a href="../logout">Выйти</a>
-
-    {% else %}
-
-        <div class="header">
+            <div class="header">
                 <div class="container">
 
                     <div class="row">
@@ -31,6 +22,17 @@
                     <div class="title">
                         <h1>ТОМСКАЯ БИБЛИОТЕКА<br>ИМЕНИ А.П.ЧЕХОВА</h1>
                     </div>
+
+    {% if user.is_authenticated %}
+
+                            <div class="user">
+                                Здравствуйте, {{ user.first_name }}<br>
+                                <a href="/change_pass" class="btn bucket">Сменить пароль</a><br>
+                                <a href="/book_list" class="btn bucket">Список книг</a><br>
+                                <h5><a href="../logout">Выйти</a></h5>
+                            </div>
+
+    {% else %}
 
                     <div class="login">
                         Перед началом работы в системе<br>войдите в свой аккаунт

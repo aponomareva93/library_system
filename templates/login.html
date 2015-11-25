@@ -1,10 +1,51 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% block title %}Вход{% endblock %}
 {% block content %}
-    <form action="" method="post">
-      {% csrf_token %}
-      <!-- as_p для того, чтобы каждый элемент формы был с новой строки -->
-      {{ form.as_p }}
-      <button type="submit">Войти</button>
-    </form>
+
+                <div class="header">
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4 text-center">
+                            <img src="{% static "img/logo.png" %}" class="logo">
+                        </div>
+                        <div class="col-sm-4 text-right">
+                            <div class="search">
+                                <img src="{% static "img/search.png" %}"><a href="../search">Поиск книги</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="title">
+                        <h1>ТОМСКАЯ БИБЛИОТЕКА<br>ИМЕНИ А.П.ЧЕХОВА</h1>
+                    </div>
+
+                    <div class="login">
+                        Введите логин и пароль
+                    </div>
+
+                    {% if form.errors %}
+                        <p class="error">Сожалеем, вы неправильно ввели логин или пароль</p>
+                    {% endif %}
+
+                    <form class="form_login" action="" method="post">
+                        {% csrf_token %}
+
+                        <label for="username"></label>
+                        <input type="text" name="username" value="" id="username" placeholder="Введите логин"><br>
+
+                        <label for="password"></label>
+                        <input type="password" name="password" value="" id="password" placeholder="Введите пароль"><br>
+
+                        <button type="submit" class="btn bucket">Войти</button><br>
+
+                    </form>
+
+                </div>
+        </div>
+
 {% endblock %}
