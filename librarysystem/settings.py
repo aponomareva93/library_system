@@ -102,4 +102,3 @@ STATICFILES_DIRS = (
     'static',
 )
 MEDIA_URL = ''
-
