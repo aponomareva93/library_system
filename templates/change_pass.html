@@ -1,19 +1,62 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% block title %}Смена пароля{% endblock %}  </head>
 {% block content %}
-    <form action="" method="post">
-      {% csrf_token %}
-      <!-- as_p для того, чтобы каждый элемент формы был с новой строки -->
-      {{ form.as_p }}
-      <button type="submit">Сменить пароль</button>
-        <br>
-        {% for message in messages %}
-            {% if message.tags == 'error' %}
-                <p style="color: red;">{{ message }}</p>
-            {% else %}
-            <p style="color: green;">{{ message }}</p>
-            {% endif %}
-        {% endfor %}
-    </form>
-    <a href="../index">Вернуться на домашнюю страницу</a>
+
+    <div class="header">
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4 text-center">
+                            <img src="{% static "img/logo.png" %}" class="logo">
+                        </div>
+                        <div class="col-sm-4 text-right">
+                            <div class="search">
+                                <img src="{% static "img/search.png" %}"><a href="../search">Поиск книги</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="title">
+                        <h1>ТОМСКАЯ БИБЛИОТЕКА<br>ИМЕНИ А.П.ЧЕХОВА</h1>
+                    </div>
+
+                    <div class="login">
+                        Смена пароля
+                    </div>
+
+                <form class="form_login" action="" method="post">
+
+                    {% for message in messages %}
+                        {% if message.tags == 'error' %}
+                            <p style="color: red;">{{ message }}</p>
+                        {% else %}
+                             <p style="color: green;">{{ message }}</p>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% csrf_token %}
+
+                    <label for="id_old_password"></label>
+                    <input type="password" name="old_password" value="" id="id_old_password" placeholder="Старый пароль"><br>
+
+                    <label for="id_new_password1"></label>
+                    <input type="password" name="new_password1" value="" id="id_new_password1" placeholder="Новый пароль"><br>
+
+                    <label for="id_new_password2"></label>
+                    <input type="password" name="new_password2" value="" id="id_new_password2" placeholder="Повторите новый пароль"><br>
+
+                    <button type="submit" class="btn bucket">Сменить пароль</button><br>
+
+                </form>
+
+                <div class="main_page">
+                    <a href="../index">Вернуться на домашнюю страницу</a>
+                </div>
+
+                </div>
+    </div>
 {% endblock %}
