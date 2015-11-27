@@ -1,5 +1,4 @@
 from django.db.models.query import EmptyQuerySet
-from django.shortcuts import redirect, render_to_response
 from django.views.generic import ListView
 
 from history.models import HistoryItem
