@@ -1,6 +1,6 @@
 from django.contrib.auth import login, logout
 from django.contrib.auth.forms import AuthenticationForm
-from django.http import HttpResponseRedirect
+from django.shortcuts import render_to_response, redirect
 from django.views.generic.base import View
 from django.views.generic.edit import FormView
 
@@ -18,5 +18,8 @@ class LoginFormView(FormView):
 
 class LogoutView(View):
     def get(self, request):
-        logout(request)
-        return HttpResponseRedirect("/index/")
+        if self.request.user.is_authenticated():
+            logout(request)
+            return render_to_response("logout.html")
+        else:
+            return redirect("/index/")

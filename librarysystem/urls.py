@@ -15,12 +15,11 @@ urlpatterns = patterns(
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^search/$', 'books.views.search', name='search'),
-    url(r'^login/$', forms.LoginFormView.as_view()),
-    url(r'^logout/$', forms.LogoutView.as_view()),
+    url(r'^login/$', forms.LoginFormView.as_view(), name='login'),
+    url(r'^logout/$', forms.LogoutView.as_view(), name='logout'),
     url(r'^index/$', 'librarysystem.views.index', name='index'),
     url(r'^$', 'librarysystem.views.index', name='index'),
     url(r'^change_pass/$', 'readers.views.change_password', name='change_password'),
-    # url(r'^book_list/$', 'history.views.view_book_list', name='book_list'),
     url(r'^book_list/$', BookListView.as_view(), name='book_list'),
 )
 
