@@ -1,17 +1,51 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% block title %}Поиск{% endblock %}
 {% block content %}
-    <p>Воспользуйтесь поиском по сайту, чтобы найти книгу:</p>
-    {% if error %}
-        <p style="color: red;">Пожалуйста, заполните форму поиска</p>
-    {% endif %}
-    <form action="" method="get">
-        Название книги:
-        <input type="text" name="name">
-        <br><br>
-        Автор:
-        <input type="text" name="author">
-        <br><br>
-        <input type="submit" value="Поиск">
-    </form>
+
+        <div class="header">
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4 text-center">
+                            <img src="{% static "img/logo.png" %}" class="logo">
+                        </div>
+                        <div class="col-sm-4 text-right">
+                            <div class="search">
+                                <img src="{% static "img/search.png" %}"><a href="../search">Поиск книги</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="title">
+                        <h1>ТОМСКАЯ БИБЛИОТЕКА<br>ИМЕНИ А.П.ЧЕХОВА</h1>
+                    </div>
+
+                    <div class="login">
+                        Воспользуйтесь поиском по сайту,<br> чтобы найти книгу:
+                    </div>
+
+                <form class="form_login" action="" method="get">
+
+                    {% if error %}
+                        <p class="error">Пожалуйста, заполните форму поиска</p>
+                    {% endif %}
+
+                    <input type="text" name="name" placeholder="Название книги"><br>
+
+                    <input type="text" name="author" placeholder="Автор книги"><br>
+
+                    <button type="submit" class="btn bucket">Поиск</button><br>
+
+                </form>
+
+                <div class="main_page">
+                    <a href="../index">Вернуться на домашнюю страницу</a>
+                </div>
+
+                </div>
+    </div>
 {% endblock %}

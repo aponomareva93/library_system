@@ -14,11 +14,11 @@ def change_password(request):
         if form.is_valid():
             form.save()
             update_session_auth_hash(request, form.user)
-            messages.success(request, "Password changed.")
+            messages.success(request, "Пароль изменён")
             return render(request, "change_pass.html",
                           {'form': PasswordChangeForm(request.user), 'message': messages})
         else:
-            messages.error(request, "Incorrect password")
+            messages.error(request, "Неверный пароль")
             return render(request, "change_pass.html",
                           {'form': PasswordChangeForm(request.user), 'message': messages})
     return render(request, "change_pass.html",

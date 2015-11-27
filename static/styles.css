@@ -123,6 +123,13 @@ a:hover{
    text-align: center;
 }
 
+.true {
+   margin-top: 5px;
+   color: green;
+   font-size: 12pt;
+   text-align: center;
+}
+
 .main_page {
     margin-top: 25px;
     text-align: center;

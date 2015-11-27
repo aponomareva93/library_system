@@ -32,9 +32,9 @@
 
                     {% for message in messages %}
                         {% if message.tags == 'error' %}
-                            <p style="color: red;">{{ message }}</p>
+                            <p class="error">{{ message }}</p>
                         {% else %}
-                             <p style="color: green;">{{ message }}</p>
+                            <p class="true">{{ message }}</p>
                         {% endif %}
                     {% endfor %}
 
