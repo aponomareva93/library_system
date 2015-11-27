@@ -135,10 +135,29 @@ a:hover{
     font-size: 11pt;
 }
 
+.result p {
+    font-size: 12pt;
+}
+
 .table thead {
     background-color: #2a6c9a;
 }
 
 .table th {
     text-align: center;
+}
+
+.date {
+    border-width: 0;
+    text-align: left;
+    font-size: 10pt;
+    color: #3e4044;
+    background-color: #ffffff;
+}
+
+.date1 {
+    text-align: right;
+    font-size: 10pt;
+    color: red;
+    background-color: #ffffff;
 }
