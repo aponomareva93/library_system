@@ -91,13 +91,6 @@ a:hover{
     background: #3795d0;
 }
 
-.footer {
-    color: #ffffff;
-    margin-top: 150px;
-    font-size: 16px;
-    text-align: center;
-}
-
 .form_login {
     text-align: center;
     margin-top: 3px;
@@ -113,7 +106,7 @@ a:hover{
 }
 
 .form_login input:focus {
-    border:2px solid #3795d0;
+    border:2px solid #2a6c9a;
 }
 
 .error {
@@ -132,5 +125,20 @@ a:hover{
 
 .main_page {
     margin-top: 25px;
+    text-align: center;
+}
+
+.result {
+    text-align: center;
+    color: #ffffff;
+    margin-top: 30px;
+    font-size: 11pt;
+}
+
+.table thead {
+    background-color: #2a6c9a;
+}
+
+.table th {
     text-align: center;
 }
